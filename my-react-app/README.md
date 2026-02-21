@@ -1,16 +1,33 @@
-# React + Vite
+# AgroMarket: Farmers Market Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Project Proposal
 
-Currently, two official plugins are available:
+**Project idea:**
+AgroMarket is a website where local farmers can sell their food directly to people and small restaurants
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Target audience:**
+Farmers who want to sell their products and people who want to buy fresh, healthy, and local food
 
-## React Compiler
+**The problem it solves:**
+Farmers lose money when they use big supermarkets to sell their food. Also, it is hard for regular people to find real fresh food. Our website helps them meet and trade directly
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Main features (MVP):**
+- Home page with a list of products (vegetables, milk, fruits).
+- Product cards with a photo, price, and the farmer's name.
+- Simple categories to filter food.
+- "Add to cart" button and a contact form.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 5. Theory Questions
+
+**What is a Single Page Application (SPA)?**
+An SPA is a website that loads only one time. When you click something, it doesn't load a new page. It just changes some parts of the screen. This makes the website work very fast.
+
+**How is SPA different from MPA?**
+Old websites (MPA) load a full new page every time you click a link. It is slow, and you see a blank screen for a second. SPA only downloads the new data it needs, so the page never fully reloads.
+
+**What is the Virtual DOM?**
+Updating the real website (DOM) is very slow. React uses a Virtual DOM — it is like a light copy in the computer's memory. React checks this copy, finds what changed, and updates only that small part on the real website.
+
+**Why does React use components?**
+Components are small parts of a website, like a button, a header, or a card. React uses them because you can write the code once and use it many times in different places. It makes the code much easier to read and fix.
