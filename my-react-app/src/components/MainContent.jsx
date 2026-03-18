@@ -7,7 +7,7 @@ import ContactForm from './ContactForm';
 // Тестовые данные мок дата 
 const PRODUCTS_DATA = [
   { id: 1, name: 'Органические помидоры', price: 3, icon: '🍅', category: 'Овощи' },
-  { id: 2, name: 'Свежий картофель', price: 1.5, icon: '🥔', category: 'Овощи' },
+  { id: 2, name: 'Картофель', price: 1.5, icon: '🥔', category: 'Овощи' },
   { id: 3, name: 'Фермерское молоко', price: 2, icon: '🥛', category: 'Молочные продукты' },
   { id: 4, name: 'Сладкие яблоки', price: 2.5, icon: '🍎', category: 'Фрукты' },
 ];

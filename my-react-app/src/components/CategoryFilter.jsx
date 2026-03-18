@@ -7,7 +7,6 @@ function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
         <button
           key={category}
           className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
-          //2: onClick устанавливает текущую выбранную категорию
           onClick={() => onSelectCategory(category)}
         >
           {category}
