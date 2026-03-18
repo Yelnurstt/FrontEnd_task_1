@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
 
 function ContactForm() {
-  const [formData, setFormData] = useState({ name: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  //3: onChange отслеживает ввод текста в поля
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //4: onSubmit предотвращает перезагрузку страницы и выводит данные
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Сообщение отправлено от ${formData.name}: ${formData.message}`);
-    setFormData({ name: '', message: '' }); 
+    alert(`Сообщение отправлено!\nИмя: ${formData.name}\nEmail: ${formData.email}\nТекст: ${formData.message}`);
+    setFormData({ name: '', email: '', message: '' }); 
   };
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h3>Связаться с фермером</h3>
+      <h3>Связаться с нами</h3>
       <input 
         type="text" 
         name="name" 
         placeholder="Ваше имя" 
         value={formData.name}
+        onChange={handleChange}
+        required 
+      />
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Ваш Email" 
+        value={formData.email}
         onChange={handleChange}
         required 
       />

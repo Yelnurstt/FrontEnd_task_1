@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className="header">
       <h1>AgroMarket</h1>
-      <p>Fresh from the farm to your table</p>
+      <p>Свежие продукты напрямую от фермеров</p>
     </header>
   );
 }

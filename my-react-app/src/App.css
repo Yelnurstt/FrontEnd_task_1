@@ -1,9 +1,13 @@
+
+
+/* Базовые настройки */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9fbf9;
-  color: #333;
+  background-color: #f3f4f6; /* Мягкий светло-серый фон */
+  color: #1f2937; /* Темно-серый цвет текста, приятнее для глаз, чем черный */
+  -webkit-font-smoothing: antialiased;
 }
 
 .app-container {
@@ -12,48 +16,38 @@ body {
   min-height: 100vh;
 }
 
+/* Шапка сайта */
 .header {
-  background-color: #4caf50;
-  color: white;
-  padding: 20px;
+  background-color: #ffffff;
+  padding: 30px 20px;
   text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
 }
 
+.header h1 {
+  margin: 0;
+  color: #10b981; /* Красивый изумрудный цвет */
+  font-size: 2.5rem;
+  letter-spacing: -0.05em;
+}
+
+.header p {
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Основной контент */
 .main-content {
   flex: 1;
-  padding: 20px;
-  max-width: 800px;
+  display: flex;
+  gap: 40px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 0 20px 40px;
   width: 100%;
-}
-
-.product-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.product-card {
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-size: 1.2rem;
-  border-left: 5px solid #4caf50;
-}
-
-.footer {
-  background-color: #2e7d32;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: auto;
-}
-
-.main-content {
-  display: flex;
-  gap: 30px;
-  max-width: 1000px;
+  box-sizing: border-box;
 }
 
 .store-section {
@@ -64,77 +58,214 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 30px;
+}
+
+h2, h3 {
+  margin-top: 0;
+  color: #111827;
+}
+
+/* Фильтры категорий */
+.category-filter {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #ffffff;
+  color: #4b5563;
+  border-radius: 99px; /* Овальные кнопки (pill shape) */
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: #f9fafb;
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background-color: #10b981;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+/* Карточки товаров */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
 .product-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+
+.product-info span:first-child {
+  font-weight: 600;
+  color: #111827;
+}
+
+.product-info span:last-child {
+  color: #6b7280;
+  font-size: 0.95rem;
 }
 
 .add-to-cart-btn {
-  background-color: #4caf50;
-  color: white;
+  background-color: #f3f4f6;
+  color: #10b981;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  padding: 10px 16px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .add-to-cart-btn:hover {
-  background-color: #45a049;
-}
-
-.category-filter {
-  margin-bottom: 20px;
-  display: flex;
-  gap: 10px;
-}
-
-.filter-btn {
-  padding: 6px 12px;
-  border: 1px solid #4caf50;
-  background: white;
-  color: #4caf50;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.filter-btn.active {
-  background-color: #4caf50;
+  background-color: #10b981;
   color: white;
 }
 
+/* Корзина */
 .cart, .contact-form {
   background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  border-top: 5px solid #4caf50;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.remove-btn:hover {
+  opacity: 1;
+}
+
+.empty-cart {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Форма обратной связи */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .contact-form input, .contact-form textarea {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
 .contact-form button {
-  background-color: #2e7d32;
+  background-color: #111827;
   color: white;
   border: none;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 14px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
 }
 
 .contact-form button:hover {
-  background-color: #2e7d32;
-} 
+  background-color: #374151;
+}
+
+/* Подвал (Footer) */
+.footer {
+  background-color: #ffffff;
+  color: #6b7280;
+  text-align: center;
+  padding: 24px;
+  margin-top: auto;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+}
+
+/* Адаптивность для мобильных телефонов (Дополнительные баллы от препода!) */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .store-section, .sidebar-section {
+    width: 100%;
+  }
+}
