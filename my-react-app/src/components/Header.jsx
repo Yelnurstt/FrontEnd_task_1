@@ -1,10 +1,19 @@
 import React from 'react';
 
-function Header() {
+function Header({ onNavigate }) {
   return (
     <header className="header">
-      <h1>AgroMarket</h1>
-      <p>Свежие продукты напрямую от фермеров</p>
+      <div 
+        className="logo" 
+        onClick={() => onNavigate('home')} 
+        style={{cursor: 'pointer'}}
+      >
+        NECTAR
+      </div>
+      <nav className="nav-links">
+        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>Главная</a>
+        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('catalog'); }}>Каталог</a>
+      </nav>
     </header>
   );
 }
