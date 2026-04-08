@@ -1,18 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Header({ onNavigate }) {
+function Header() {
   return (
     <header className="header">
-      <div 
-        className="logo" 
-        onClick={() => onNavigate('home')} 
-        style={{cursor: 'pointer'}}
-      >
-        NECTAR
-      </div>
+      <Link to="/" className="logo">NECTAR</Link>
       <nav className="nav-links">
-        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>Главная</a>
-        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('catalog'); }}>Каталог</a>
+        <Link to="/">Главная</Link>
+        <Link to="/catalog">Каталог</Link>
+        <Link to="/cart">Корзина</Link>
+        <Link to="/profile">Профиль</Link>
       </nav>
     </header>
   );

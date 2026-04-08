@@ -1,25 +1,42 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
-import './App.css'; 
+import './App.css';
+
+// Компоненты-заглушки для демонстрации новых маршрутов
+const Profile = () => (
+  <div style={{ padding: '20px' }}>
+    <h2>Личный кабинет</h2>
+    <Outlet /> 
+  </div>
+);
+
+const ProfileSettings = () => <h3>Настройки аккаунта</h3>;
 
 function App() {
-  // Состояние для отслеживания текущей страницы
-  const [currentPage, setCurrentPage] = useState('home');
-
   return (
     <div className="app-container">
-      {/* Передаем функцию смены страницы в шапку */}
-      <Header onNavigate={setCurrentPage} />
+      <Header />
       
-      {/* Условный рендеринг: если 'home', показываем Home, иначе MainContent */}
-      {currentPage === 'home' ? (
-        <Home onGoToCatalog={() => setCurrentPage('catalog')} />
-      ) : (
-        <MainContent />
-      )}
+      <Routes>
+        {/*Главная страница */}
+        <Route path="/" element={<Home />} />
+        
+        {/*Каталог */}
+        <Route path="/catalog" element={<MainContent />} />
+        
+        {/* Корзина */}
+        <Route path="/cart" element={<div style={{padding: '20px'}}><h2>Корзина</h2></div>} />
+        
+        {/*Профиль (Родительский маршрут) */}
+        <Route path="/profile" element={<Profile />}>
+          {/*Настройки (Вложенный маршрут: /profile/settings) */}
+          <Route path="settings" element={<ProfileSettings />} />
+        </Route>
+      </Routes>
 
       <Footer />
     </div>

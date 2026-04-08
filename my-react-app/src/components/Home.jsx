@@ -15,7 +15,6 @@ function Home({ onGoToCatalog }) {
         </button>
       </div>
       
-      {/* 2. Заменяем текст на тег <img> */}
       <div className="hero-image-card">
         <img src={heroImage} alt="Экологически чистый продукт" className="hero-img" />
       </div>
