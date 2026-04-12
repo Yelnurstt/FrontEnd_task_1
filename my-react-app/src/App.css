@@ -360,3 +360,62 @@ h2, h3 {
   font-weight: 500;
 }
 
+/* кара тема */
+.app-container.dark {
+  background-color: #121212;
+  color: #f3f4f6;
+  min-height: 100vh;
+}
+
+.dark .header {
+  border-bottom: 1px solid #333;
+}
+
+.dark h2, .dark h3, .dark .product-info span:first-child {
+  color: #f9fafb;
+}
+
+.dark .nav-links a {
+  color: #d1d5db;
+}
+
+.dark .nav-links a:hover {
+  color: #10b981;
+}
+
+.dark .product-card,
+.dark .cart,
+.dark .contact-form,
+.dark .filter-btn {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+.dark .filter-btn {
+  color: #d1d5db;
+}
+
+.dark .filter-btn.active {
+  background-color: #10b981;
+  color: white;
+}
+
+.dark .contact-form input,
+.dark .contact-form textarea {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.dark .contact-form input:focus,
+.dark .contact-form textarea:focus {
+  border-color: #10b981;
+  background-color: #1f2937;
+}
+
+.dark .footer {
+  border-top-color: #333;
+  color: #6b7280;
+}
+

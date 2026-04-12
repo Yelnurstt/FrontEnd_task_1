@@ -1,12 +1,12 @@
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux'; // Добавляем импорт
 import Header from './components/Header';
 import Home from './components/Home';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import './App.css';
 
-// Компоненты-заглушки для демонстрации новых маршрутов
 const Profile = () => (
   <div style={{ padding: '20px' }}>
     <h2>Личный кабинет</h2>
@@ -17,23 +17,19 @@ const Profile = () => (
 const ProfileSettings = () => <h3>Настройки аккаунта</h3>;
 
 function App() {
+  // Достаем текущую тему
+  const theme = useSelector((state) => state.theme.value);
+
   return (
-    <div className="app-container">
+    <div className={`app-container ${theme}`}>
       <Header />
       
       <Routes>
-        {/*Главная страница */}
         <Route path="/" element={<Home />} />
-        
-        {/*Каталог */}
         <Route path="/catalog" element={<MainContent />} />
+        <Route path="/about" element={<div style={{padding: '40px'}}><h2>О нас</h2><p>AgroMarket — платформа...</p></div>} />
         
-        {/* Корзина */}
-        <Route path="/cart" element={<div style={{padding: '20px'}}><h2>Корзина</h2></div>} />
-        
-        {/*Профиль (Родительский маршрут) */}
         <Route path="/profile" element={<Profile />}>
-          {/*Настройки (Вложенный маршрут: /profile/settings) */}
           <Route path="settings" element={<ProfileSettings />} />
         </Route>
       </Routes>

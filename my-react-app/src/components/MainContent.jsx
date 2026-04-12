@@ -26,7 +26,6 @@ function MainContent() {
     setCartItems([...cartItems, product]);
   };
 
-  // НОВАЯ ФУНКЦИЯ: удаление из корзины по индексу
   const handleRemoveFromCart = (indexToRemove) => {
     setCartItems(cartItems.filter((item, index) => index !== indexToRemove));
   };
@@ -49,7 +48,6 @@ function MainContent() {
       </div>
 
       <div className="sidebar-section">
-        {/* Передаем функцию удаления в корзину */}
         <Cart cartItems={cartItems} onRemove={handleRemoveFromCart} />
         <ContactForm />
       </div>
