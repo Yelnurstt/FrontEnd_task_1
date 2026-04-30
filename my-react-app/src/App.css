@@ -419,3 +419,148 @@ h2, h3 {
   color: #6b7280;
 }
 
+/*Спиннер*/
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f4f6; 
+  border-top: 5px solid #10b981; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dark .spinner {
+  border: 5px solid #374151;
+  border-top: 5px solid #10b981;
+}
+
+/* мобилка вершн*/
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  
+  .home-page {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-image-card {
+    height: 300px; 
+  }
+
+  .main-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .store-section, 
+  .sidebar-section {
+    width: 100%;
+    flex: auto;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+  
+  .cart-item > div {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+
+/*Профил*/
+.profile-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f0fdf4;
+}
+
+.profile-status {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+/* Темная тема для профиля */
+.dark .profile-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.dark .detail-item {
+  border-bottom-color: #374151;
+}
+
+.dark th {
+  color: #9ca3af;
+}

@@ -1,17 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ThemeToggle from './ThemeToggle'; 
+import { NavLink, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../store/authSlice';
+import ThemeToggle from './ThemeToggle';
 
 function Header() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const dispatch = useDispatch();
+
+  const getLinkStyle = ({ isActive }) => ({
+    textDecoration: 'none',
+    color: isActive ? '#10b981' : '', 
+    fontWeight: isActive ? '700' : '600'
+  });
+
   return (
     <header className="header">
-      <Link to="/" className="logo" style={{ textDecoration: 'none' }}>NECTAR</Link>
+      <Link to="/" className="logo" style={{ textDecoration: 'none' }}>AgroMarket</Link>
       <nav className="nav-links" style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/">Главная</Link>
-        <Link to="/catalog">Каталог</Link>
-        <Link to="/about">О нас</Link> 
-        <Link to="/profile">Профиль</Link>
-        <ThemeToggle /> {/* Вставляем переключатель */}
+        <NavLink to="/" style={getLinkStyle}>Главная</NavLink>
+        <NavLink to="/catalog" style={getLinkStyle}>Каталог</NavLink>
+        <NavLink to="/about" style={getLinkStyle}>О нас</NavLink> 
+        <NavLink to="/profile" style={getLinkStyle}>Профиль</NavLink>
       </nav>
     </header>
   );
