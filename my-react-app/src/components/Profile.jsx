@@ -4,8 +4,10 @@ import { logout } from '../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+  const userMessages = useSelector(state => state.messages.items);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const user = {
     name: "Yelnur Saialubekov",
     email: "yelnur@narxoz.kz",
@@ -58,6 +60,21 @@ const Profile = () => {
           >
             Выйти из аккаунта
           </button>
+        </div>
+
+        <div style={{ marginTop: '40px', paddingTop: '20px', borderTop: '1px solid #eee' }}>
+          <h3>Мои обращения ({userMessages.length})</h3>
+          {userMessages.length === 0 ? (
+            <p>Вы еще не отправляли сообщений.</p>
+          ) : (
+            <ul>
+              {userMessages.map((msg) => (
+                <li key={msg.id} style={{ marginBottom: '10px' }}>
+                  <strong>{msg.date}</strong> - {msg.message}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>
