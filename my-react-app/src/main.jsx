@@ -8,7 +8,6 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* Оборачиваем приложение */}
     <Provider store={store}>
       <BrowserRouter>
         <App />

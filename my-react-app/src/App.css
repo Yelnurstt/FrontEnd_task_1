@@ -564,3 +564,564 @@ h2, h3 {
 .dark th {
   color: #9ca3af;
 }
+
+/* Новые стили для лендинга */
+.home-container {
+  overflow-x: hidden;
+}
+
+.hero-section {
+  display: flex;
+  min-height: 80vh;
+  align-items: center;
+  gap: 50px;
+}
+
+.info-section {
+  padding: 80px 0;
+  background-color: #f9fafb;
+  margin: 60px -40px; /* Выход за границы контейнера */
+  padding: 80px 40px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-card {
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.farmers-world {
+  padding: 100px 0;
+  background: linear-gradient(rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+  border-radius: 30px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.farmers-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.final-cta {
+  text-align: center;
+  padding: 80px 0;
+  border-top: 1px solid #eee;
+}
+
+/* =========================================
+   СТРАНИЦА ОФОРМЛЕНИЯ ЗАКАЗА (CHECKOUT)
+   ========================================= */
+.checkout-page {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  flex: 1;
+}
+
+.checkout-container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f3f4f6;
+  width: 100%;
+  max-width: 500px;
+}
+
+.checkout-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.order-summary {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+  border: 1px dashed #d1d5db;
+}
+
+.order-summary h3 {
+  margin: 0 0 10px 0;
+}
+
+.order-summary p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.checkout-form .form-group {
+  margin-bottom: 15px;
+}
+
+.checkout-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.checkout-form input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #f9fafb;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.checkout-form input:focus {
+  outline: none;
+  border-color: #10b981;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.payment-card-box {
+  background: #111827;
+  padding: 25px;
+  border-radius: 16px;
+  margin-top: 25px;
+}
+
+.payment-card-box h4 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.payment-card-box input {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: white;
+}
+
+.payment-card-box input::placeholder {
+  color: #9ca3af;
+}
+
+.payment-card-box input:focus {
+  border-color: #10b981;
+  background-color: #1f2937;
+}
+
+.dark .checkout-container {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.dark .order-summary {
+  background: #111827;
+  border-color: #374151;
+}
+
+
+/* =========================================
+   СТРАНИЦА ОТЗЫВОВ (REVIEWS)
+   ========================================= */
+.reviews-page {
+  padding: 40px 0 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.reviews-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.reviews-header h2 {
+  font-size: 2.2rem;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.reviews-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Форма добавления отзыва */
+.add-review-section {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  border: 1px solid #e5e7eb;
+}
+
+.add-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.add-review-form input, 
+.add-review-form select, 
+.add-review-form textarea {
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background-color: #f9fafb;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.add-review-form input:focus, 
+.add-review-form select:focus, 
+.add-review-form textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  background-color: white;
+}
+
+/* Карточки отзывов */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.review-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  border: 1px solid #f3f4f6;
+}
+
+.review-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  background-color: #10b981;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.stars {
+  font-size: 0.9rem;
+  margin-top: 3px;
+  letter-spacing: 2px;
+}
+
+.review-date {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+.review-text {
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Ответы на отзывы */
+.replies-section {
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 3px solid #f0fdf4;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.reply-card {
+  background: #f9fafb;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 1px solid #f3f4f6;
+}
+
+.reply-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.reply-header strong {
+  color: #10b981;
+}
+
+.reply-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Действия (Кнопка ответа) */
+.reply-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.reply-btn:hover {
+  color: #10b981;
+}
+
+.reply-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.reply-input-box textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.cancel-btn {
+  background: none;
+  border: 1px solid #d1d5db;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4b5563;
+}
+
+/* Темная тема (Dark mode) */
+.dark .add-review-section, .dark .review-card {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.dark .add-review-form input, .dark .add-review-form select, .dark .add-review-form textarea,
+.dark .reply-input-box, .dark .reply-input-box textarea {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.dark .review-text, .dark .reviews-header h2 {
+  color: #f3f4f6;
+}
+
+.dark .reply-card {
+  background-color: #111827;
+  border-color: #374151;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================================================
+   FINAL FARMERS SECTION (Монументальный стиль)
+   ======================================================= */
+
+.farmers-world {
+  background-color: var(--bg-secondary); /* Мягкий фон секции */
+  border-radius: var(--radius-lg);
+  margin: 60px 0;
+  overflow: hidden; /* Важно: чтобы картинка не вылезала за скругления */
+  padding: 0; /* Убираем падинги, картинка будет вплотную к краю */
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.farmers-world-wrapper {
+  display: flex;
+  align-items: stretch; /* Важно: растягивает оба блока на одинаковую высоту */
+  justify-content: space-between;
+  gap: 0; /* Убираем gap, блоки прижаты друг к другу */
+}
+
+/* Настройка текстового блока (Слева) */
+.farmers-text-block {
+  flex: 1.1; /* Чуть больше половины */
+  padding: 80px 60px; /* Большие отступы внутри текста */
+  text-align: left;
+}
+
+.farmers-text-block h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  line-height: 1.1;
+  color: var(--text-heading);
+}
+
+.farmers-text-block p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-main);
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* Стиль цитаты */
+.farmers-text-block p:last-child {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  border-left: 3px solid var(--color-primary);
+  padding-left: 20px;
+  margin-top: 40px;
+  opacity: 1;
+}
+
+/* Настройка блока с фотографией (Справа) */
+.farmers-image-block {
+  flex: 1; /* Чуть меньше половины */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  /* Убрали псевдоэлемент ::before (зеленый квадрат) */
+}
+
+/* Финальный стиль самой картинки */
+.farmer-side-img {
+  width: 100%;
+  height: 100%; /* Картинка занимает всю высоту родителя (stretch) */
+  object-fit: cover; /* Картинка заполняет область, не искажаясь */
+  
+  /* Убрали макс-ширину, тень и рамочку, картинка — стена */
+  border-radius: 0; 
+  box-shadow: none;
+  border: none;
+  
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.farmer-side-img:hover {
+  transform: scale(1.05); /* Легкий наезд при наведении */
+}
+
+/* =======================================================
+   АДАПТИВНОСТЬ (MOBILE)
+   ======================================================= */
+@media (max-width: 992px) {
+  .farmers-world-wrapper {
+    flex-direction: column-reverse; /* На мобилках фото сверху, текст снизу */
+  }
+
+  .farmers-text-block {
+    padding: 40px 25px;
+    text-align: center;
+  }
+
+  .farmers-text-block h2 {
+    font-size: 2.2rem;
+  }
+
+  .farmers-text-block p:last-child {
+    border-left: none;
+    border-top: 2px solid var(--color-primary);
+    padding-left: 0;
+    padding-top: 20px;
+    margin-top: 30px;
+  }
+
+  .farmers-image-block {
+    height: 300px; /* Фиксированная высота для фото на мобилках */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================================================
+   АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+   ======================================================= */
+@media (max-width: 992px) {
+  .farmers-world-wrapper {
+    flex-direction: column; /* На планшетах и телефонах — в колонку */
+    gap: 40px;
+    text-align: center;
+  }
+
+  .farmers-text-block {
+    text-align: center; /* Центрируем текст на мобилках */
+  }
+
+  .farmer-side-img {
+    height: 350px; /* Уменьшаем высоту фото на телефоне */
+    max-width: 300px;
+  }
+}

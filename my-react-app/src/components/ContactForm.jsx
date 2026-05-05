@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addMessage } from '../store/messagesSlice'; // Импортируем экшен
+import { addMessage } from '../store/messagesSlice'; 
 
 function ContactForm() {
   const dispatch = useDispatch();

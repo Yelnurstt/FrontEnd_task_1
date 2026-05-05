@@ -8,7 +8,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    dispatch(login()); //статус Redux
+    dispatch(login()); 
     navigate('/profile'); 
   };
 

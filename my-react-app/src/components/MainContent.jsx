@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../store/productsSlice'; // Импортируем thunk
+import { fetchProducts } from '../store/productsSlice'; 
 import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../store/cartSlice';
 import ProductList from './ProductList';
 import CategoryFilter from './CategoryFilter';

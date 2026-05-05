@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../store/themeSlice';
 
 function ThemeToggle() {
-  // Получаем текущую тему из Redux
   const theme = useSelector((state) => state.theme.value);
   const dispatch = useDispatch();
 

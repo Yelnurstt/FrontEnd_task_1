@@ -10,6 +10,8 @@ import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import About from './components/About'; 
 import Profile from './components/Profile'; 
+import Checkout from './components/Checkout';
+import Reviews from './components/Reviews';
 
 function App() {
   const theme = useSelector((state) => state.theme.value);
@@ -26,6 +28,8 @@ function App() {
         
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/checkout" element={<Checkout />} /> 
+          <Route path="/reviews" element={<Reviews />} />
         </Route>
       </Routes>
 
