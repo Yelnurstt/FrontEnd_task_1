@@ -41,17 +41,19 @@ const productsSlice = createSlice({
       }
     }
   },
+
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
-        state.status = 'loading'; 
+        state.status = 'loading'; // Загрузка 
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.status = 'succeeded'; 
+        state.status = 'succeeded'; //запрос жасалды
         state.items = action.payload; 
       })
       .addCase(fetchProducts.rejected, (state, action) => {
-        state.status = 'failed'; 
+        state.status = 'failed'; // ошибка
         state.error = action.payload; 
       });
   },

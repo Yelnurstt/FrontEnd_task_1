@@ -26,8 +26,11 @@ function Header() {
           Каталог {totalItemsCount > 0 && `(${totalItemsCount})`}
         </NavLink>
         <NavLink to="/about" style={getLinkStyle}>О нас</NavLink> 
-        <NavLink to="/reviews" style={getLinkStyle}>Отзывы</NavLink>
         <NavLink to="/profile" style={getLinkStyle}>Профиль</NavLink>
+        
+        {/* Вот она! Возвращаем кнопку переключения темы */}
+        <ThemeToggle />
+        
       </nav>
     </header>
   );
