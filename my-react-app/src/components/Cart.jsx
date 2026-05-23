@@ -61,7 +61,7 @@ function Cart({ cartItems, onRemove, onIncrease, onDecrease }) {
         <p className="empty-cart">Ваша корзина пуста.</p>
       )}
       
-=      <div style={{ borderTop: '2px dashed #e5e7eb', paddingTop: '20px', marginTop: '20px' }}>
+      <div style={{ borderTop: '2px dashed #e5e7eb', paddingTop: '20px', marginTop: '20px' }}>
         <h4>Итого: <span style={{ color: '#10b981' }}>{total} тг</span></h4>
         
         {cartItems.length > 0 && (

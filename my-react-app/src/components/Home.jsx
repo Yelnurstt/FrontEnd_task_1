@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import heroImage from '../assets/hero-bg.png'; 
-import farmerPhoto from '../assets/Фотка.svg';
+import farmerPhoto from '../assets/IMG_9643.JPG';
 
 function Home() {
   const navigate = useNavigate();

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { addProduct, deleteProduct } from '../store/productsSlice';
+import { addProductAsync, deleteProductAsync } from '../store/productsSlice';
+import myAvatar from '../assets/IMG_9643.JPG';
 
 const Profile = () => {
   const userMessages = useSelector(state => state.messages.items);
@@ -17,7 +18,7 @@ const Profile = () => {
     email: "yelnur@narxoz.kz",
     phone: "+7 (747) 752-80-83",
     joinDate: "Январь 2026",
-    avatar: "hero-avatar.png" 
+    avatar: myAvatar 
   };
 
   const handleLogout = () => {
@@ -35,7 +36,7 @@ const Profile = () => {
       price: Number(newProduct.price)
     };
     
-    dispatch(addProduct(productData)); 
+    dispatch(addProductAsync(productData)); 
     setNewProduct({ name: '', price: '', category: 'Овощи' }); 
     alert('Продукт успешно добавлен в каталог!');
   };
@@ -131,7 +132,7 @@ const Profile = () => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <strong style={{ color: '#10b981' }}>{p.price} тг</strong>
                     <button 
-                      onClick={() => dispatch(deleteProduct(p.id))}
+                      onClick={() => dispatch(deleteProductAsync(p.id))}
                       style={{ background: '#fee2e2', border: 'none', color: '#ef4444', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}
                     >
                       Удалить
