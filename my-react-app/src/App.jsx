@@ -2,16 +2,18 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './App.css';
-import Header from './components/Header';
-import Home from './components/Home';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
-import Login from './components/Login';
+
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
-import About from './components/About'; 
-import Profile from './components/Profile'; 
-import Checkout from './components/Checkout';
-import Reviews from './components/Reviews';
+
+import Home from './pages/Home';
+import MainContent from './pages/MainContent'; 
+import About from './pages/About'; 
+import Login from './pages/Login';
+import Profile from './pages/Profile'; 
+import Checkout from './pages/Checkout';
+import Reviews from './pages/Reviews';
 
 function App() {
   const theme = useSelector((state) => state.theme.value);

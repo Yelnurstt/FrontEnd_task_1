@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../store/authSlice';
-import ThemeToggle from './ThemeToggle';
-import { useCart } from '../hooks/useCart';
+import { logout } from '../../store/authSlice';
 
+
+import ThemeToggle from '../ui/ThemeToggle';
+import { useCart } from '../../hooks/useCart';
 function Header() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const { totalItemsCount } = useCart(); // castom

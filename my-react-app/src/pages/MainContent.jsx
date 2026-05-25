@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../store/productsSlice'; 
 import { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } from '../store/cartSlice';
-import ProductList from './ProductList';
-import CategoryFilter from './CategoryFilter';
-import Cart from './Cart';
-import ContactForm from './ContactForm';
+
+
+import ProductList from '../components/catalog/ProductList';
+import CategoryFilter from '../components/catalog/CategoryFilter';
+import Cart from '../components/Cart';
+import ContactForm from '../components/ContactForm';
 
 const CATEGORIES = ['Все', 'Овощи', 'Молочные продукты', 'Фрукты'];
 
