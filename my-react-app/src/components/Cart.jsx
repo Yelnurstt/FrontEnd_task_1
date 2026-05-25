@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../hooks/useCart';
 
-function Cart({ cartItems, onRemove, onIncrease, onDecrease }) {
+function Cart({ onRemove, onIncrease, onDecrease }) {
   const navigate = useNavigate(); 
-  const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const totalItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  
+  const { cartItems, totalPrice, totalItemsCount } = useCart();
 
   return (
     <div className="cart">
@@ -62,8 +63,7 @@ function Cart({ cartItems, onRemove, onIncrease, onDecrease }) {
       )}
       
       <div style={{ borderTop: '2px dashed #e5e7eb', paddingTop: '20px', marginTop: '20px' }}>
-        <h4>Итого: <span style={{ color: '#10b981' }}>{total} тг</span></h4>
-        
+        <h4>Итого: <span style={{ color: '#10b981' }}>{totalPrice} тг</span></h4>
         {cartItems.length > 0 && (
           <button 
             className="cta-button" 

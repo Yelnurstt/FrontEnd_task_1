@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../store/cartSlice';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../hooks/useCart';
 
 function Checkout() {
-  const cartItems = useSelector(state => state.cart.items);
-  const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const { cartItems, totalPrice, totalItemsCount } = useCart();
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -58,8 +58,8 @@ function Checkout() {
       <div className="checkout-container">
         <h2>Оформление заказа</h2>
         <div className="order-summary">
-          <h3>Сумма к оплате: <span style={{ color: '#10b981' }}>{total} тг</span></h3>
-          <p>Товаров в заказе: {cartItems.reduce((sum, item) => sum + item.quantity, 0)} шт.</p>
+          <h3>Сумма к оплате: <span style={{ color: '#10b981' }}>{totalPrice} тг</span></h3>
+          <p>Товаров в заказе: {totalItemsCount} шт.</p>
         </div>
 
         {error && <div style={{ color: '#ef4444', marginBottom: '15px', fontWeight: 'bold' }}>{error}</div>}
@@ -114,7 +114,7 @@ function Checkout() {
             disabled={isProcessing}
             style={{ width: '100%', marginTop: '20px', opacity: isProcessing ? 0.7 : 1 }}
           >
-            {isProcessing ? 'Обработка платежа...' : `Оплатить ${total} тг`}
+            {isProcessing ? 'Обработка платежа...' : `Оплатить ${totalPrice} тг`}
           </button>
         </form>
       </div>

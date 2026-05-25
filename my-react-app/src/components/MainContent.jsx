@@ -63,7 +63,6 @@ function MainContent() {
 
       <div className="sidebar-section">
         <Cart 
-          cartItems={cartItems} 
           onRemove={(id) => dispatch(removeFromCart(id))} 
           onIncrease={(id) => dispatch(increaseQuantity(id))}
           onDecrease={(id) => dispatch(decreaseQuantity(id))}

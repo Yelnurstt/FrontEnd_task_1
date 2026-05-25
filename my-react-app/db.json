@@ -7,12 +7,6 @@
       "category": "Овощи"
     },
     {
-      "id": "3",
-      "name": "молоко",
-      "price": 2000,
-      "category": "Молочные продукты"
-    },
-    {
       "id": "4",
       "name": "Сладкие яблоки",
       "price": 2500,
@@ -41,6 +35,12 @@
       "price": 2500,
       "category": "Молочные продукты",
       "id": "Au2dXCc6yjo"
+    },
+    {
+      "name": "Сүт",
+      "price": 2500,
+      "category": "Молочные продукты",
+      "id": "g_mFpQYxWzI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

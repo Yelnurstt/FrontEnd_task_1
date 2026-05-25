@@ -3,11 +3,11 @@ import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store/authSlice';
 import ThemeToggle from './ThemeToggle';
+import { useCart } from '../hooks/useCart';
 
 function Header() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const { totalItemsCount } = useCart(); // castom
   
   const dispatch = useDispatch();
 
@@ -27,8 +27,6 @@ function Header() {
         </NavLink>
         <NavLink to="/about" style={getLinkStyle}>О нас</NavLink> 
         <NavLink to="/profile" style={getLinkStyle}>Профиль</NavLink>
-        
-        {/* Вот она! Возвращаем кнопку переключения темы */}
         <ThemeToggle />
         
       </nav>
