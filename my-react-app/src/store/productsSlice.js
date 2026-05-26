@@ -6,7 +6,7 @@ export const fetchProducts = createAsyncThunk(
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      const response = await fetch('http://localhost:5000/products');
+      const response = await fetch('http://localhost:3000/products');
       
       if (!response.ok) {
         throw new Error('Ошибка при загрузке товаров с сервера');
@@ -23,7 +23,7 @@ export const fetchProducts = createAsyncThunk(
 export const addProductAsync = createAsyncThunk(
   'products/addProduct',
   async (newProduct) => {
-    const response = await fetch('http://localhost:5000/products', {
+    const response = await fetch('http://localhost:3000/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newProduct)
@@ -36,7 +36,7 @@ export const addProductAsync = createAsyncThunk(
 export const deleteProductAsync = createAsyncThunk(
   'products/deleteProduct',
   async (id) => {
-    await fetch(`http://localhost:5000/products/${id}`, {
+    await fetch(`http://localhost:3000/products/${id}`, {
       method: 'DELETE'
     });
     return id; 

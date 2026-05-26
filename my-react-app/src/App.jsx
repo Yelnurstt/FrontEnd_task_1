@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './App.css';
@@ -17,6 +17,14 @@ import Reviews from './pages/Reviews';
 
 function App() {
   const theme = useSelector((state) => state.theme.value);
+
+  useEffect(() => {
+    try {
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    } catch (e) {
+      // ignore in non-browser env
+    }
+  }, [theme]);
 
   return (
     <div className={`app-container ${theme}`}>

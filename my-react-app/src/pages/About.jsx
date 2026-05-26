@@ -12,7 +12,7 @@ const About = () => {
         Наша миссия - закрыть урок 90 + и  поддержка локальных производителей и обеспечение городских жителей 
         самыми свежими, экологически чистыми продуктами без лишних наценок супермаркетов.
       </p>
-      <div style={{ marginTop: '30px', padding: '20px', background: '#f0fdf4', borderRadius: '12px', borderLeft: '4px solid #10b981' }}>
+      <div className="about-highlight" style={{ marginTop: '30px' }}>
         <h4>Почему выбирают нас?</h4>
         <ul>
           <li>Краш Елнұр</li>

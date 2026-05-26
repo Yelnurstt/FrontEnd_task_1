@@ -21,6 +21,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* When 'dark' class is applied to the root (html) make the whole page dark */
+.dark body {
+  background-color: #121212;
+  color: #f3f4f6;
+}
+
 
 .app-container {
   max-width: 1200px; 
@@ -1135,4 +1141,60 @@ h2, h3 {
     height: 350px; /* Уменьшаем высоту фото на телефоне */
     max-width: 300px;
   }
+
+}
+
+/* Дополнительные правки для тёмной темы: покрыть лендинг и карточки */
+.dark .hero-image-card {
+  background-color: #0f1720;
+  box-shadow: none;
+}
+
+.dark .home-container .info-section,
+.dark .info-section {
+  background-color: #0b0f11;
+  color: #cbd5e1;
+}
+
+.dark .info-card {
+  background: #111827;
+  border-color: #374151;
+  box-shadow: none;
+  color: #cbd5e1;
+}
+
+.dark .info-card h3,
+.dark .info-card p {
+  color: #cbd5e1;
+}
+
+/* Ensure any white panels used as highlights are darkened */
+.dark .info-grid,
+.dark .hero-content,
+.dark .hero-image-card,
+.dark .info-card,
+.dark .add-review-section,
+.dark .info-section {
+  background-clip: padding-box;
+}
+
+/* Improve contrast for small text inside light-looking components */
+.dark .info-card .info-icon {
+  opacity: 1;
+}
+
+/* About page highlight box */
+.about-highlight {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f0fdf4;
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
+  color: #065f46;
+}
+
+.dark .about-highlight {
+  background: #0f1720; /* darken the card */
+  border-left-color: #10b981;
+  color: #cbd5e1;
 }
