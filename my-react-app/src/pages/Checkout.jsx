@@ -58,7 +58,7 @@ function Checkout() {
       <div className="checkout-container">
         <h2>Оформление заказа</h2>
         <div className="order-summary">
-          <h3>Сумма к оплате: <span style={{ color: '#10b981' }}>{totalPrice} тг</span></h3>
+          <h3>Сумма к оплате: <span style={{ color: '#10b981' }}>{totalPrice} тг</span></h3> // custom 
           <p>Товаров в заказе: {totalItemsCount} шт.</p>
         </div>
 

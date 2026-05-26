@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": "2",
-      "name": "Картофель",
-      "price": 1500,
-      "category": "Овощи"
-    },
-    {
       "id": "4",
       "name": "Сладкие яблоки",
       "price": 2500,
@@ -37,10 +31,10 @@
       "id": "Au2dXCc6yjo"
     },
     {
-      "name": "Сүт",
-      "price": 2500,
-      "category": "Молочные продукты",
-      "id": "g_mFpQYxWzI"
+      "name": "Картошка",
+      "price": 1500,
+      "category": "Овощи",
+      "id": "Df8VMnWe6Z8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
