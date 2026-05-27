@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../store/cartSlice';
+import { addOrder } from '../store/ordersSlice'; // <-- Импортируем экшен добавления заказа
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
 
 function Checkout() {
   const { cartItems, totalPrice, totalItemsCount } = useCart();
+  const currentUser = useSelector((state) => state.auth.user); // <-- Получаем текущего юзера
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,7 +29,6 @@ function Checkout() {
     e.preventDefault();
     setError('');
 
-    // Простая валидация
     if (!formData.address || !formData.cardNumber || !formData.expiry || !formData.cvv) {
       setError('Пожалуйста, заполните все поля.');
       return;
@@ -43,9 +44,33 @@ function Checkout() {
       // Имитация запроса к банку (2 секунды)
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      dispatch(clearCart());
-      alert('Оплата прошла успешно! Ваш заказ оформлен.');
+      // Сбор данных о заказе перед очисткой корзины
+      const orderData = {
+        id: Date.now(),
+        userEmail: currentUser?.email || 'guest', // Привязываем к email текущего юзера
+        date: new Date().toLocaleString('ru-RU', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }),
+        items: cartItems.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity
+        })),
+        totalPrice: totalPrice
+      };
+
+      // Сохраняем в историю заказов Redux
+      dispatch(addOrder(orderData));
       
+      // Очищаем корзину
+      dispatch(clearCart());
+      
+      alert('Оплата прошла успешно! Ваш заказ оформлен и добавлен в историю.');
       navigate('/profile');
     } catch (err) {
       setError('Ошибка при обработке платежа.');
@@ -58,7 +83,7 @@ function Checkout() {
       <div className="checkout-container">
         <h2>Оформление заказа</h2>
         <div className="order-summary">
-          <h3>Сумма к оплате: <span style={{ color: '#10b981' }}>{totalPrice} тг</span></h3> // custom 
+          <h3>Сумма к оплате: <span style={{ color: '#10b981' }}>{totalPrice} тг</span></h3>
           <p>Товаров в заказе: {totalItemsCount} шт.</p>
         </div>
 

@@ -1,17 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-//GET
+
+// GET
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (_, { rejectWithValue }) => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
-
       const response = await fetch('http://localhost:3000/products');
-      
       if (!response.ok) {
         throw new Error('Ошибка при загрузке товаров с сервера');
       }
-
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -19,7 +17,7 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
-//POST
+// POST
 export const addProductAsync = createAsyncThunk(
   'products/addProduct',
   async (newProduct) => {
@@ -32,7 +30,7 @@ export const addProductAsync = createAsyncThunk(
   }
 );
 
-//DELETE
+// DELETE
 export const deleteProductAsync = createAsyncThunk(
   'products/deleteProduct',
   async (id) => {
@@ -43,6 +41,19 @@ export const deleteProductAsync = createAsyncThunk(
   }
 );
 
+// PUT (НОВОЕ: Редактирование товара)
+export const editProductAsync = createAsyncThunk(
+  'products/editProduct',
+  async (updatedProduct) => {
+    const response = await fetch(`http://localhost:3000/products/${updatedProduct.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedProduct)
+    });
+    return await response.json();
+  }
+);
+
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
@@ -50,15 +61,7 @@ const productsSlice = createSlice({
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
   },
-  reducers: {
-    updateProductPrice: (state, action) => {
-      const { id, newPrice } = action.payload;
-      const product = state.items.find(p => p.id === id);
-      if (product) {
-        product.price = newPrice;
-      }
-    }
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -69,18 +72,23 @@ const productsSlice = createSlice({
         state.items = action.payload; 
       })
       .addCase(fetchProducts.rejected, (state, action) => {
-        state.status = 'failed'; // ошибка
+        state.status = 'failed'; 
         state.error = action.payload; 
       })
-      
       .addCase(addProductAsync.fulfilled, (state, action) => {
         state.items.push(action.payload);
       })
       .addCase(deleteProductAsync.fulfilled, (state, action) => {
         state.items = state.items.filter(product => product.id !== action.payload);
+      })
+      // НОВОЕ: Обновляем товар в стейте после успешного ответа сервера
+      .addCase(editProductAsync.fulfilled, (state, action) => {
+        const index = state.items.findIndex(p => p.id === action.payload.id);
+        if (index !== -1) {
+          state.items[index] = action.payload;
+        }
       });
   },
 });
 
-export const { updateProductPrice } = productsSlice.actions;
 export default productsSlice.reducer;

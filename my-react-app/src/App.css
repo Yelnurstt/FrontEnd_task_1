@@ -1198,3 +1198,79 @@ h2, h3 {
   border-left-color: #10b981;
   color: #cbd5e1;
 }
+
+
+/* =======================================================
+   СТИЛИ ДЛЯ ТАБЛИЦЫ ИСТОРИИ ЗАКАЗОВ В ПРОФИЛЕ
+   ======================================================= */
+.orders-table-container {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.orders-table th {
+  background-color: #f9fafb;
+  color: #374151;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 20px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.orders-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #4b5563;
+  vertical-align: top;
+}
+
+.orders-table tr:last-child td {
+  border-bottom: none;
+}
+
+.orders-table tr:hover td {
+  background-color: #fcfdfd;
+}
+
+/* --- Поддержка Темной Темы (Dark Mode) --- */
+.dark .orders-table-container {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.dark .orders-table th {
+  background-color: #111827;
+  color: #9ca3af;
+  border-bottom-color: #374151;
+}
+
+.dark .orders-table td {
+  border-bottom-color: #374151;
+  color: #d1d5db;
+}
+
+.dark .orders-table tr:hover td {
+  background-color: #243042;
+}
+
+.dark .admin-kpi-grid div {
+  background-color: #111827 !important;
+  border-color: #374151 !important;
+  color: #f3f4f6 !important;
+}
+
+.dark .admin-kpi-grid h4 {
+  color: #9ca3af !important;
+}
